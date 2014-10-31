@@ -18,7 +18,9 @@ Installation instruction
 
 3- Uncompress the file Nemo-UltraCopier.zip and copy the contents of 3  files to the place /home/USER/.local/share/nemo/actions where USER it's your user account.
 
-4- Test the result and enjoy.
+4- Give permission for execute the file /home/USER/.local/share/nemo/actions/nemo-ultracopier.py.
+
+5- Test the result and enjoy.
 
 
 Change log
