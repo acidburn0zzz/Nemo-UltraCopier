@@ -1,12 +1,12 @@
 #! /usr/bin/python
 #  -*- coding: utf-8 -*-
 
-# Nemo action: Nemo-UltraCopier
+# Nemo action: Nemo-UltraCopy
 # Release Date: 09 May 2014
 #
 # Authors: Lester Carballo Pérez(https://github.com/lestcape).
 #
-#          Email: lestcape@gmail.com     Website: https://github.com/lestcape/Nemo-UltraCopier
+#          Email: lestcape@gmail.com     Website: https://github.com/lestcape/Nemo-UltraCopy
 #
 # "This is an action for the Nemo browser, to paste files using ultracopier
 # instead of the default nemo copier tool."
@@ -33,16 +33,6 @@ import os
 import urllib
 from gi.repository import Gtk, Gdk
 
-
-def normalize(path):
-    path = path.replace(" ", "\\ ")
-    path = path.replace("(", "\\(")
-    path = path.replace(")", "\\)")
-    path = path.replace("'", "\\'")
-    path = path.replace("&", "\\&")
-    path = urllib.unquote(path)
-    return path
-
 clipboard  = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
 result = clipboard.wait_for_contents(Gdk.Atom.intern("x-special/gnome-copied-files", False))
 if result is not None:
@@ -52,12 +42,12 @@ if result is not None:
     fileList = ""
     for file in files:
         if file.index("file://") == 0:
-            fileList += " " + normalize(file[7:])
+            fileList += " " + urllib.unquote(file[7:])
 
     print fileList
     print sys.argv[1]
     if action == "copy":
-        os.system("ultracopier cp %s %s" % (fileList, normalize(sys.argv[1])))
+        os.system("ultracopier cp %s '%s'" % (fileList, urllib.unquote(sys.argv[1])))
     elif action == "cut":
-        os.system("ultracopier mv %s %s" % (fileList, normalize(sys.argv[1])))
+        os.system("ultracopier mv %s '%s'" % (fileList, urllib.unquote(sys.argv[1])))
 

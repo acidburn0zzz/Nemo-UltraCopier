@@ -32,7 +32,7 @@ Comment=Move or copy the selected file in the cut or copy of the previous action
 # What to run. Enclose in < > to run an executable that resides in the actions folder.
 # **** REQUIRED ****
 #Exec=gedit %F
-Exec=<nemo-ultracopier.py %P>
+Exec=<nemo-ultracopier.py '%P'>
 
 # Icon name to use in the menu - must be a theme icon name
 Icon-Name=gtk-paste
@@ -45,6 +45,8 @@ Icon-Name=gtk-paste
 # a number representing how many files must be selected to display.
 # ****** REQUIRED *******
 Selection=none
+Name[es]=Pegar con UltraCopier
+Comment[es]=Mover o copiar el archivo seleccionado en la acción anterior de corte o copia.
 
 # What extensions to display on - this is an array, end with a semicolon
 # Single entry options, ending in a semicolon:
