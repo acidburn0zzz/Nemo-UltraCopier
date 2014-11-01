@@ -42,7 +42,7 @@ if result is not None:
     fileList = ""
     for file in files:
         if file.index("file://") == 0:
-            fileList += " " + urllib.unquote(file[7:])
+            fileList += " '" + urllib.unquote(file[7:]) + "'"
 
     print fileList
     print sys.argv[1]

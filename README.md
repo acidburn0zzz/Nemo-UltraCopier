@@ -28,6 +28,7 @@ Change log
 0.2-Beta
   - Add translation for spanish languages (Es)
   - Removed some unnecessary conversion and allow the empty spaces in the url.
+  - Fixed empty space in the source url(thanks to Alberto Perez).
 
 0.1-Beta
   - Initial release
